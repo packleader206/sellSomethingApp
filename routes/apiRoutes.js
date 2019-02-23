@@ -146,11 +146,11 @@ module.exports = function (app) {
       })
       .then(function () {
         res.redirect("/userProfile");
-        var option = {
-          position: "t",
-          duration: "3500"
-        };
-        res.flash("Your Item Successfuly Updated!", 'warn', option)
+        // var option = {
+        //   position: "t",
+        //   duration: "3500"
+        // };
+        // res.flash("Your Item Successfuly Updated!", 'warn', option)
         // res.json(dbItem);
       });
   });

@@ -33,7 +33,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    expires: 6000000000
+    expires: 60000
   }
 }));
 
@@ -63,7 +63,6 @@ app.use(flash());
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-// require("./public/js/index")(app);
 
 var syncOptions = {
   force: false
