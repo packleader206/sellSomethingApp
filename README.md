@@ -10,18 +10,7 @@ Sell Something is a full-stack application that provides a market place for user
 - Javascript
 - MySQL
 - Node.js
-- NPM Express
-- NPM Express-Handlebars
-- NPM Body-Parser
-- NPM Method-Override
-- NPM Multer-S3
-- NPM bcrypt
-- NPM cookie-parser
-- NPM cookie-parser
-- NPM sequelize
-- Javascript
-- MySQL
-- Node.js
+
 - NPM Packages Used:
     aws-sdk--
     bcrypt--
@@ -47,8 +36,7 @@ Sell Something is a full-stack application that provides a market place for user
 - <strong>Wilder Molyneux</strong>
 <hr>
 
-## [Click Here to Try Our App](https://thawing-reaches-85632.herokuapp.com/)
-## [Click Here To Try Our App](https://thawing-reaches-85632.herokuapp.com/)
+## [Click Here to Try Our App](https://nameless-eyrie-70280.herokuapp.com/login)
 
 ## Local Setup:
 
@@ -60,7 +48,7 @@ Once you have MySQL installed, you will need to create a database using your myS
 
 <strong>Once you have the sellsomething_db database set up, run the following commands at your command prompt:</strong>
 
-           1. git clone https://github.com/ramezray/Project2.git ENTER
+           1. git clone https://github.com/ramezray/sellSomethingApp ENTER
            
            2. cd project2 ENTER
            
