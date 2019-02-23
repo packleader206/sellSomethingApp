@@ -110,23 +110,23 @@ module.exports = function (app) {
     });
   });
 
-//delete item
-app.post("/",function (req, res) {
- db.Item.destroy(req.body, {
-      where: {
-        id: req.params.id
-      }
-    })
-    .then(function () {
-      res.redirect("/");
-      var option = {
-        position: "t",
-        duration: "3500"
-      };
-      res.flash("Your Item Successfuly Deleted!", 'warn', option)
-      // res.json(dbItem);
-    });
-});
+  //delete item
+  app.post("/", function (req, res) {
+    db.Item.destroy(req.body, {
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(function () {
+        res.redirect("/");
+        var option = {
+          position: "t",
+          duration: "3500"
+        };
+        res.flash("Your Item Successfuly Deleted!", 'warn', option)
+        // res.json(dbItem);
+      });
+  });
 
 
 
