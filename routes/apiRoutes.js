@@ -112,13 +112,13 @@ module.exports = function (app) {
 
   // DELETE route for deleting an item. We can get the id of the item to be deleted from
   // req.params.id
-  app.get("/item/delete/:id", function(req, res) {
+  app.get("/item/delete/:id", function (req, res) {
     // We just have to specify which todo we want to destroy with "where"
     db.Item.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbItem) {
+    }).then(function (dbItem) {
       res.redirect("/userProfile");
     })
 
@@ -155,17 +155,27 @@ module.exports = function (app) {
       res.render('signUp', hbsContent);
     })
     .post((req, res) => {
-      User.create({
-          user_email: req.body.user_email,
-          password: req.body.password
-        })
-        .then(user => {
-          req.session.user = user.dataValues;
-          res.redirect('/login');
-        })
-        .catch(error => {
-          res.redirect('/signUp');
-        });
+      if (req.body.password != req.body.password2) {
+        var option = {
+          position: "b",
+          duration: "3500"
+        };
+        res.flash("Password Must be Matching.", "error", option);
+        res.redirect('/signUp');
+      } else {
+        User.create({
+            user_email: req.body.user_email,
+            password: req.body.password
+          })
+          .then(user => {
+            req.session.user = user.dataValues;
+            res.redirect('/login');
+          })
+          .catch(error => {
+            res.redirect('/signUp');
+          });
+      }
+
     });
   // route for user Login
   app.route('/login')
