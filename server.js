@@ -33,7 +33,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    expires: 60000
+    expires: 6000000000000
   }
 }));
 
@@ -94,3 +94,4 @@ db.sequelize.sync(syncOptions).then(function () {
     );
   });
 });
+

@@ -110,25 +110,19 @@ module.exports = function (app) {
     });
   });
 
-  //delete item
-  app.post("/", function (req, res) {
-    db.Item.destroy(req.body, {
-        where: {
-          id: req.params.id
-        }
-      })
-      .then(function () {
-        res.redirect("/");
-        var option = {
-          position: "t",
-          duration: "3500"
-        };
-        res.flash("Your Item Successfuly Deleted!", 'warn', option)
-        // res.json(dbItem);
-      });
+  // DELETE route for deleting an item. We can get the id of the item to be deleted from
+  // req.params.id
+  app.get("/item/delete/:id", function(req, res) {
+    // We just have to specify which todo we want to destroy with "where"
+    db.Item.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbItem) {
+      res.redirect("/userProfile");
+    })
+
   });
-
-
 
   //update item
   app.post("/item/update/:id", upload.single("myImage"), function (req, res) {
@@ -146,12 +140,12 @@ module.exports = function (app) {
       })
       .then(function () {
         res.redirect("/userProfile");
-        // var option = {
-        //   position: "t",
-        //   duration: "3500"
-        // };
-        // res.flash("Your Item Successfuly Updated!", 'warn', option)
-        // res.json(dbItem);
+        var option = {
+          position: "t",
+          duration: "3500"
+        };
+        res.flash("Your Item Successfuly Updated!", 'warn', option)
+        res.json(dbItem);
       });
   });
 
