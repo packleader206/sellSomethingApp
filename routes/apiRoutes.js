@@ -79,11 +79,11 @@ module.exports = function (app) {
     var image;
     if (!req.file) {
       // If no file was selected we use a placeholder
-      image = "/upload/placeholder.png";
+      image = "public/images/placeholder.png";
     } else if (useS3) {
       image = req.file.location;
     } else {
-      image = "/upload/" + req.file.filename;
+      image = "public/images/" + req.file.filename;
     }
 
     db.Item.create({
