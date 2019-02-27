@@ -28,7 +28,7 @@ var storage;
 
 if (!process.env.S3_KEY) {
   useS3 = false;
-  console.log("No S3 Key available. Using local upload");
+  console.log("===========>>>>>>>>No S3 Key available. Using local upload");
   storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, "upload");
@@ -40,7 +40,7 @@ if (!process.env.S3_KEY) {
   });
 } else {
   useS3 = true;
-  console.log("Using S3 key: " + process.env.S3_KEY);
+  console.log("===========>>>>>>>>Using S3 key: " + process.env.S3_KEY);
   storage = multerS3({
     s3: s3,
     bucket: "sellsomethingapp",
