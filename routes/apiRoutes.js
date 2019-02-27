@@ -43,7 +43,7 @@ if (!process.env.S3_KEY) {
   console.log("Using S3 key: " + process.env.S3_KEY);
   storage = multerS3({
     s3: s3,
-    bucket: "sellSomethingApp",
+    bucket: "sellsomethingapp",
     acl: "public-read",
     contentType: multerS3.AUTO_CONTENT_TYPE,
     key: function (req, file, cb) {
@@ -79,11 +79,11 @@ module.exports = function (app) {
     var image;
     if (!req.file) {
       // If no file was selected we use a placeholder
-      image = "public/images/placeholder.png";
+      image = "/images/placeholder.png";
     } else if (useS3) {
       image = req.file.location;
     } else {
-      image = "public/images/" + req.file.filename;
+      image = "/images/" + req.file.filename;
     }
 
     db.Item.create({
