@@ -95,3 +95,6 @@ db.sequelize.sync(syncOptions).then(function () {
   });
 });
 
+// handlebars.registerHelper('select', function(selected, option) {
+//   return (selected == option) ? 'selected="selected"' : '';
+// });

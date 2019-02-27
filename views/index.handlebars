@@ -23,17 +23,17 @@
       </li>
 
     </ul>
-    {{!-- <div class="dropdown mr-5" >
-        <div class="form-group" id="dropdown">
-            <select class="form-control" class="categories" name="categories" id="dropdown">
-              <option class="dropdown-item" value="everything">EveryThing</option>
-              <option class="dropdown-item" value="Clothing">Clothing</option>
-              <option class="dropdown-item" value="Furniture">Furniture</option>
-              <option class="dropdown-item" value="Cars">Cars</option>
-              <option class="dropdown-item" value="Electronics">Electronics</option>
-            </select>
-          </div>
-        </div> --}}
+    {{!-- <div class="dropdown mr-5">
+      <div class="form-group" id="dropdown">
+        <select class="form-control" class="categories" name="categories" id="dropdown">
+          <option class="dropdown-item" {{select categories  "everything"}}>EveryThing</option>
+          <option class="dropdown-item" {{select categories "Clothing"}}>Clothing</option>
+          <option class="dropdown-item" {{select categories "Furniture"}}>Furniture</option>
+          <option class="dropdown-item" {{select categories "Cars"}}>Cars</option>
+          <option class="dropdown-item" {{select categories "Electronics"}}>Electronics</option>
+        </select>
+      </div>
+    </div> --}}
   </div>
   </div>
 </nav>
@@ -44,9 +44,9 @@
     <h3>All Items For Sale</h3>
     <h4></h4>
   </div>
-  <div class="container row col-12 ml-5">
+  <div class="container row col-12 ml-5 p-2">
     {{#each items}}
-    <div class="card col-4 mb-3">
+    <div class="card border border-primary col-4 mb-3">
       <h3 class="card-header text-capitalize">{{this.title}}</h3>
       <a href="/oneItem/{{this.id}}"><img style="height: 200px; width: 100%; display: block;" src="{{this.image}}"
           alt="Card image"></a>
