@@ -82,8 +82,10 @@ module.exports = function (app) {
       image = "/images/placeholder.png";
     } else if (useS3) {
       image = req.file.location;
+      console.log("==========>>>> S3 Key available");
     } else {
       image = "/images/" + req.file.filename;
+      console.log("======?>>>No S3 Key available. Using local upload");
     }
 
     db.Item.create({
