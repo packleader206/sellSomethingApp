@@ -3,6 +3,8 @@ var multer = require("multer");
 var aws = require("aws-sdk");
 var multerS3 = require("multer-s3");
 var User = db.users;
+const S3_BUCKET = process.env.S3_BUCKET;
+aws.config.region = 'US East (Ohio)';
 
 // middleware function to check for logged-in users
 var sessionChecker = (req, res, next) => {
@@ -43,7 +45,7 @@ if (!process.env.S3_KEY) {
   console.log("===========>>>>>>>>Using S3 key: " + process.env.S3_KEY);
   storage = multerS3({
     s3: s3,
-    bucket: "sellsomethingapp",
+    bucket:S3_BUCKET,
     acl: "public-read",
     contentType: multerS3.AUTO_CONTENT_TYPE,
     key: function (req, file, cb) {
