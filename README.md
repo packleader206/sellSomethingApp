@@ -48,9 +48,9 @@ Once you have MySQL installed, you will need to create a database using your myS
 
 <strong>Once you have the sellsomething_db database set up, run the following commands at your command prompt:</strong>
 
-           1. git clone https://github.com/ramezray/sellSomethingApp ENTER
+           1. git clone https://github.com/packleader206/sellSomethingApp.git ENTER
            
-           2. cd project2 ENTER
+           2. cd sellSomethingApp ENTER
            
            3. npm install ENTER
            
@@ -59,7 +59,7 @@ Once you have MySQL installed, you will need to create a database using your myS
            
 ## Running the App:
 
-           1.  Using your cmd prompt, navigate to the "Project2" directory that you cloned in the previous step.
+           1.  Using your cmd prompt, navigate to the "sellSomethingApp" directory that you cloned in the previous step.
            
            2.  Run the command "node server.js" to start the server.
            
