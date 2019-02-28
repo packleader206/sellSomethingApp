@@ -3,8 +3,6 @@ var multer = require("multer");
 var aws = require("aws-sdk");
 var multerS3 = require("multer-s3");
 var User = db.users;
-const S3_BUCKET = process.env.S3_BUCKET;
-aws.config.region = 'US East (Ohio)';
 
 // middleware function to check for logged-in users
 var sessionChecker = (req, res, next) => {
@@ -30,7 +28,7 @@ var storage;
 
 if (!process.env.S3_KEY) {
   useS3 = false;
-  console.log("===========>>>>>>>>No S3 Key available. Using local upload");
+  console.log("No S3 Key available. Using local upload");
   storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, "upload");
@@ -42,10 +40,10 @@ if (!process.env.S3_KEY) {
   });
 } else {
   useS3 = true;
-  console.log("===========>>>>>>>>Using S3 key: " + process.env.S3_KEY);
+  console.log("Using S3 key: " + process.env.S3_KEY);
   storage = multerS3({
     s3: s3,
-    bucket:S3_BUCKET,
+    bucket: "sellsomethingapp",
     acl: "public-read",
     contentType: multerS3.AUTO_CONTENT_TYPE,
     key: function (req, file, cb) {
